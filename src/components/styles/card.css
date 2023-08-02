@@ -1,0 +1,113 @@
+.card-container{
+    width: 272.00042724609375px;
+    height: 460.0003662109375px;
+    position: relative;
+    border: solid 1px black;
+    left: 85px;
+    margin-right: 80px;
+    margin-top: 50px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #707070;
+    box-shadow: 0px 3px 6px 0px #00000029;
+
+
+
+}
+.course-image{
+    width: 272px;
+    height: 170px;
+    position: absolute;
+    border: solid 1px black;
+    border-radius: 20px;
+
+}
+.course-title{
+    width: 242px;
+    height: 46px;
+   position: absolute;
+    top: 194px;
+    border: solid 1px black;
+    left: 16px;
+
+}
+.rate{
+    width: 135px;
+    height: 16px;
+    position: absolute;
+    top: 254px;
+    border: solid 1px black;
+    left: 16px;
+
+}
+.owner{
+    width: 240px;
+    height: 15px;
+    opacity: 75%;
+    position: absolute;
+    top: 280px;
+    border: solid 1px black;
+    left: 16px;
+
+}
+.about-course{
+    width: 198px;
+    height: 32px;
+    opacity: 75;
+    font-family: Quicksand;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.36666664481163025px;
+    text-align: left;
+    color: #343434;
+    border: solid 1px black;
+    position: absolute;
+    top: 310px;
+    left: 16px;
+
+}
+.see-more{
+    width: 57px;
+    height: 16px;
+    top: 328px;
+    position: absolute;
+    border: solid 1px black;
+    left: 214px;
+    font-family: Quicksand;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.3333333134651184px;
+    text-align: left;
+    color: #343434;
+
+
+}
+.current-price{
+    width: 48px;
+    height: 20px;
+    position: absolute;
+    top:358px;
+    left: 16px;
+    border: solid 1px black;
+}
+.old-price{
+    width: 51px;
+    height: 20px;
+    position: absolute;
+    top:358px;
+    left: 63px;
+    border: solid 1px black;
+    opacity: 50%;
+}
+.get-course-container{
+    width: 240.0009765625px;
+    height: 34px;
+    position: absolute;
+    left: 16px;
+    top: 402px;
+    border: solid 1px black;
+
+
+}

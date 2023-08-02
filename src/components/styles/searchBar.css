@@ -1,0 +1,48 @@
+.searchBar{
+    width: 612px;
+    height: 38px;
+    top: 32px;
+    left: 377px;
+    position: relative;
+}
+.searchBar .searchBarInput{
+    width: 612px;
+    height: 38px;
+    position: absolute;
+    border:1px solid #707070;
+    border-radius: 10px;
+}
+.searchBarInput::placeholder{
+    position: absolute;
+    width: 212px;
+    height: 19px;
+    top: 11px;
+    left: 24px;
+    opacity: 60%;
+    font-family: Quicksand;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0.4999999701976776px;
+    text-align: left;
+
+
+}
+.searchBar  .searchButton{
+    width: 61px;
+    height: 38px;
+    left: 551px;
+    position: relative;
+    background-color: #28A19C;
+    border-radius: 0px 10px 10px 0px;
+
+}
+.searchButton .icons{
+    width: 18px;
+    height: 18.000009536743164px;
+    top: 0px;
+    left: 23.5px;
+    position: relative;
+    color: white;
+
+}

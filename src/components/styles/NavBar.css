@@ -1,0 +1,52 @@
+.navBar{
+    width: 1519px;
+    height: 102px;
+    background-color: white;
+
+}
+.logo{
+    width: 150px;
+    height: 33px;
+    top: 38px;
+    left: 80px;
+    position: absolute;
+
+}
+.cart{
+    width: 24.000009536743164px;
+    height: 22.56725025177002px;
+    top: 40px;
+    left: 1036px;
+    border: 1.25px;
+    position: absolute;
+    color: #28A19C;
+    border-color: #28A19C;
+}
+.login{
+   color: #28A19C;
+    width: 45px;
+    height: 20px;
+    top: 42px;
+    left: 1095px;
+    position: absolute;
+    font-family: Quicksand;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.5333333015441895px;
+    text-align: left;
+
+}
+.sign-up{
+    color: white;
+    background-color: #28A19C;
+    width: 115px;
+    height: 38px;
+    top: 32px;
+    left: 1171px;
+    position: absolute;
+    border-radius: 8px;
+
+
+
+}
