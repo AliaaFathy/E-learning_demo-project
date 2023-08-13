@@ -1,31 +1,41 @@
 import Header from "./header";
-import CardList from "../CardList";
-import {Button, Link} from "@mui/material";
-import DropDown from "../DropDown";
-import SlideMenu from "../slideMenu";
+import {Box, Stack} from "@mui/material";
+import DropDown from "../ReusableCompents/DropDown";
 import {useNavigate} from "react-router-dom";
-
+import FilteredCourses from "./FilteredCourses";
+import CustomButton from "../ReusableCompents/CustomButton";
+import SubjectMenuBar from "./subjectMenuBar";
+const names = [
+    'Oliver Hansen',
+    'Van Henry',
+    'April Tucker',
+    'Ralph Hubbard',
+    'Omar Alexander',
+    'Carlos Abbott',
+    'Miriam Wagner',
+    'Bradley Wilkerson',
+    'Virginia Andrews',
+    'Kelly Snyder',
+];
 function TopCategory(){
-    const courses=['Development','Design','Marketing','Business','Languages']
     const navigate = useNavigate();
-
+    const dropDownStyle={color:'#8E8E93',borderRadius:4}
     return(
         <div>
         <Header header='Top Category' details='Learn the latest skills to reach your professional goals'></Header>
-            <div className='flex'>
-                <DropDown content='Choose your curriculum'></DropDown>
-                <DropDown content='Choose your study phase'></DropDown>
-            </div>
-            <SlideMenu options={courses} marginRight={10}></SlideMenu>
-            <CardList></CardList>
-            <Button onClick={()=>navigate('courses')} variant='button'  sx={{
-                width:314,
-                color:'white',
-                background:'#28A19C',
-                mt:8,
-                ml:75,
-                fontFamily:'Quicksand',
-                fontSize:22,textAlign:'center',borderRadius:5}}> View More Courses</Button>
+            <Stack direction='row' alignItems='center' justifyContent='center' marginTop={2}>
+                <DropDown content='Choose your curriculum' options={names} style={dropDownStyle}></DropDown>
+                <DropDown content='Choose your study phase' options={names} style={dropDownStyle}></DropDown>
+            </Stack>
+            <SubjectMenuBar></SubjectMenuBar>
+            <FilteredCourses></FilteredCourses>
+            <CustomButton
+                onClick={()=>navigate('courses')}
+                variant='contained'
+                buttonText='View More courses'>
+            </CustomButton>
+
+
         </div>
     )
 }

@@ -1,23 +1,26 @@
-import {Box, Button, Typography} from "@mui/material";
+import {Box, Button, Link, Stack, Typography} from "@mui/material";
 import {useState} from "react";
 
-function MenuBar (){
+function MenuBar ({menuBarContent}){
     const[optionIndex,setOptionIndex]=useState(0)
     const handleClick=(index)=>{
         setOptionIndex(index)
     }
-    const options=['Overview','content','instructors','Reviews','Quizes','Assignment']
-
-    const Selected=<Typography sx={{fontSize:16,color:'#28A19C', p:3,
-        fontWeight:600,ml:10,borderBottom: 'solid #28A19C'}} onClick={()=>handleClick(optionIndex)}
-                               key={optionIndex}>{options[optionIndex]}</Typography>
-    const renderedOption=options.map((option,index)=>{
-        return <Box>{optionIndex === index ? Selected : <Typography onClick={()=>handleClick(index)}
-            sx={{fontSize:16,color:'#7B7B7B', fontWeight:600,ml:10, p:3}} key={index}>{option}</Typography>}</Box>
+    const basicStyle={fontSize:16,color:'#7B7B7B', fontWeight:600,
+        height:50,scrollBehavior:'smooth',textDecoration:'none'}
+    const renderedOption=menuBarContent.map((option,index)=>{
+        const style=optionIndex===index?{...basicStyle,borderBottom: 'solid #28A19C'}:basicStyle
+        return  <Link
+            href={`#${index}`}
+            onClick={()=>handleClick(index)}
+            sx={style}
+            key={index}>
+            {option}
+        </Link>
     })
     return(
-        <Box>
-            <Box sx={{display:'flex' ,background:'white'}}>{renderedOption}</Box>
+        <Box sx={{background:'white'}}>
+            <Stack direction='row' spacing={15} sx={{pt:3,ml:10}} >{renderedOption}</Stack>
         </Box>
     )
 }

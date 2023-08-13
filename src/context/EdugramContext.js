@@ -4,12 +4,15 @@ const EdugramContext=createContext()
 
 function EdugramProvider({children}){
     const [open, setOpen] = useState(false);
+    const[clickedIndex,setClickedIndex]=useState(null)
+
     const handleOpen = () => {setOpen(true)};
     const handleClose = () => {setOpen(false)};
-   const valueToShare={
+    const handleSlectedSubject=(index)=>{setClickedIndex(index)}
+    const valueToShare={
        handleOpen,
        handleClose,
-       open
+       open,clickedIndex,handleSlectedSubject
 
     }
     return<EdugramContext.Provider value={valueToShare}>

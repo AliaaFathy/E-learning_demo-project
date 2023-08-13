@@ -8,8 +8,6 @@ const loginApi=createApi({
     endpoints(build) {
         return {
             login: build.mutation({
-
-
                 query(user) {
                     return {
                         url: '/api/v1/user/login',
@@ -18,7 +16,7 @@ const loginApi=createApi({
                             'user': {'email':user.email,password:user.password},
                             "device": {
                                 "uid": "68c7c64",
-                                "fcm_token": "il"
+                                "fcm_token": 'il'
                             }
                         }
                     }

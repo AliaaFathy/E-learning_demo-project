@@ -1,10 +1,14 @@
 import Header from "./header";
-import DropDown from "../DropDown";
-import SlideMenu from "../slideMenu";
-import CardList from "../CardList";
-import {Button} from "@mui/material";
+import MenuSlider from "../ReusableCompents/MenuSlider";
+import CardList from "../ReusableCompents/CardList";
+import {Box, Button} from "@mui/material";
+import CertificateList from "../ReusableCompents/CertificateList";
+import MultipleItems from "../ReusableCompents/MultipleItemSlider";
+import CertificateCard from "../ReusableCompents/CertificateCard";
+import CustomButton from "../ReusableCompents/CustomButton";
+import CertificateSlider from "./CertificateSlider";
 
-function popularCertificate(){
+function PopularCertificate(){
     const certificate=['Master Track Certificates',
                                'IT Certificates',
                                 'University Certificates',
@@ -12,19 +16,14 @@ function popularCertificate(){
     return(
         <div>
             <Header header='Popular Certificates' details='Break into a new field. No prior experience necessary to get started'></Header>
-            <SlideMenu options={certificate} marginRight={5}></SlideMenu>
-            <CardList></CardList>
-            <Button variant='button' sx={{
-                width:314,
-                color:'white',
-                background:'#28A19C',
-                mt:8,
-                ml:75,
-                fontFamily:'Quicksand',
-                fontSize:22,textAlign:'center',borderRadius:5}}> View More Courses</Button>
+            <CertificateSlider></CertificateSlider>
+               <CertificateList></CertificateList>
+            <CustomButton
+                buttonText='View More Certificates' variant='contained'>
+            </CustomButton>
         </div>
 
     )
 
 }
-export default popularCertificate;
+export default PopularCertificate;
