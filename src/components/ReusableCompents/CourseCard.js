@@ -22,7 +22,7 @@ import useExpantion from "../../hooks/useExpansion";
 import notFoundImage from '../../images/notFound.png'
 
 
-function CourseCard({course,categorized}){
+function CourseCard({course}){
  const navigate=useNavigate()
     const location=useLocation()
     const [isSaved,setIsSaved]=useState(false)
@@ -44,7 +44,6 @@ function CourseCard({course,categorized}){
         textOverflow:'ellipsis'}
     const handleClick=(course_id)=>{
         dispatch(setCourseId(course_id))
-        console.log(location.pathname)
 
         if(location.pathname!=='/about') {
             navigate('/about')
@@ -57,7 +56,7 @@ function CourseCard({course,categorized}){
 
     return(<Box >
         <Card
-        sx={{ width: 270,mt:10,pb:2,justifyContent:'center',
+        sx={{ width: 270,mt:10,pb:2,
         boxShadow: '0px 3px 6px 0px #00000029',borderRadius:5}}>
         <CardActionArea  >
             <CardMedia >
@@ -103,11 +102,11 @@ function CourseCard({course,categorized}){
                        ref={ref}>
                        {course.classified_product.description}
                    </Typography>
-                   {isOverflow&&
-                       <Typography onClick={handleExpansion}
-                                   sx={{fontWeight:600,fontSize:10}}>
-                           {isExpanded?'See Less':'See More'}
-                       </Typography>}
+                       {isOverflow&&
+                           <Typography onClick={handleExpansion}
+                                       sx={{fontWeight:600,fontSize:10,position:'relative',left:120}}>
+                               {isExpanded?'See Less':'See More'}
+                           </Typography>}
                    <Stack
                        direction='row'
                        spacing={2}>
@@ -116,14 +115,14 @@ function CourseCard({course,categorized}){
                        {course.original_price_currency}
                        {course.original_price}
                    </Typography>
-                       <Typography
+                       {course.discount_percentage !==0&&<Typography
                            sx={{textDecoration:'line-through'
                                ,fontWeight:500,
                                fontSize:16,
                                opacity:'50%'}}>
                            {course.original_price_currency}
                            {course.price_after_discount}
-                       </Typography>
+                       </Typography>}
                    </Stack>
                </Stack>
             </CardContent>

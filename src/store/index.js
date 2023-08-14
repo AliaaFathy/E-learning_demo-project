@@ -11,7 +11,7 @@ import {selectSubjectIndex} from "./Slices/subjectSlice";
 import {courseDetailReducer} from "./Slices/CourseDetailSlice";
 import {setCourseDetails,setCourseId} from  './Slices/CourseDetailSlice'
 import {CourseListApi} from "./APIs/CourseListApi";
-import {courseListReducer,setCourseList} from "./Slices/CourseListSlice";
+import {coursesListReducer,setCoursesList,setFlattenCoursesList} from "./Slices/CourseListSlice";
 import {filteredCourseListReducer,setFilteredCourseList} from "./Slices/FilteredCourseList";
 import {certificateReducer} from "./Slices/CertificateSlice";
 import{selectCertificateIndex} from "./Slices/CertificateSlice";
@@ -21,7 +21,7 @@ const store=configureStore({
         login:userLoginReducer,
         subjects:subjectReducer,
         aboutCourse:courseDetailReducer,
-        courses:courseListReducer,
+        coursesList:coursesListReducer,
         certificates:certificateReducer,
         filteredCourses:filteredCourseListReducer,
         [loginApi.reducerPath]:loginApi.reducer,
@@ -49,7 +49,7 @@ export {
     setCourseDetails,
     setCourseId,
     setFilteredCourseList,
-    selectCertificateIndex,
+    selectCertificateIndex,setCoursesList,setFlattenCoursesList
 }
 export {useLoginMutation} from './APIs/LoginApi'
 export {useFetchSubjectQuery} from './APIs/SubjectAPI'

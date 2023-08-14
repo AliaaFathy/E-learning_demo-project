@@ -14,6 +14,10 @@ const data=[{imageUrl:videoIcon,description:'13 hours on-demand video'},
     {imageUrl: mobileIcon,description:'Access on mobile and TV'},
     {imageUrl: assignmentIcon,description:'Assignments'},
     {imageUrl: certificateIcon,description:'Certificate of completion'}]
+function isValidVimeoUrl(url) {
+    const vimeoRegex = /^https:\/\/vimeo\.com\/\d+$/;
+    return vimeoRegex.test(url);
+}
 function RightSideCourseSummary(){
     const courseDetail=useSelector((state)=>{
         return state.aboutCourse.courseDatails
@@ -23,7 +27,8 @@ function RightSideCourseSummary(){
          boxShadow:'0px 3px 6px 0px #00000029'}
     const containedStyle={...basicButtonStyle,color:'white'}
     const video=courseDetail.classified_product.video_url
-    const videoUrl=video===null?'https://vimeo.com/498071737':video
+    const validUrl=isValidVimeoUrl(video)
+    const videoUrl=video===null?'https://vimeo.com/498071737':validUrl?video:'https://vimeo.com/498071737'
     const renderedData=data.map((data,index)=>{
         return(
             <Stack direction='row' spacing={2} key={index} alignItems='center'>

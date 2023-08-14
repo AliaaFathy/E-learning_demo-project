@@ -6,7 +6,6 @@ import {useContext} from "react";
 import EdugramContext from "../../context/EdugramContext";
 
 function CardList({data}){
-    console.log(data)
     let renderedCourseList
     const inCenter = data.length < 4?{justifyContent:'center'}:{pl:15}
 

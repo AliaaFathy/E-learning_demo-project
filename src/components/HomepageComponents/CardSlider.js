@@ -12,7 +12,6 @@ function CardSlider({data,itemsPerSlide}) {
             </Box>
         )
     })
-    console.log(children)
 return(
     <Box sx={{justifyContent:'center',alignItems:'center'}}>
      <MultipleItemSlider itemsNumber={Math.min(data.length, itemsPerSlide)} children={children}></MultipleItemSlider>

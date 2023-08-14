@@ -7,7 +7,7 @@ const list=[
 function Requirement(){
     const style={display:'list-item',listStyleType:'disc',fontWeight:500,fontSize:14,opacity:'86%'}
     const renderedListItem=list.map((listItem)=>{
-      return  <ListItem  sx={style}>{listItem.value}</ListItem>
+      return  <ListItem  sx={style} key={listItem.id}>{listItem.value}</ListItem>
 
     })
     return(

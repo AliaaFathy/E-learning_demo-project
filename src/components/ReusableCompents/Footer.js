@@ -29,7 +29,7 @@ function Footer(){
             </Stack>
             <Stack spacing={2} >
                 <Typography variant='body3' sx={{color:'#28A19C'}}>Sitemap</Typography>
-                <Typography variant='body3'  sx={location.pathname==='/'&& {color:'#FFBA00'}}>Home</Typography>
+                <Typography variant='body3'  sx={location.pathname==='/'? {color:'#FFBA00'}:{}}>Home</Typography>
                 <Typography variant='body3'>About us </Typography>
                 <Typography variant='body3'>Contact us</Typography>
             </Stack>

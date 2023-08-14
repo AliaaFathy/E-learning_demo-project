@@ -10,7 +10,7 @@ const loginSlice=createSlice({
         },
         changePassword(state,action){
             state.password=action.payload
-        }
+        },
     }
 })
 export const{changeEmail,changePassword}=loginSlice.actions

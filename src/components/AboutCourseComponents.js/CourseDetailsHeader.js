@@ -11,20 +11,21 @@ import defaultProfilePicture from '../../images/profile.png'
 
 
 function CourseDetailsHeader(){
+
     const subjectName=useSelector((state)=>{
         return state.subjects.subjectName
     })
     const data=useSelector((state)=>{
         return state.aboutCourse.courseDatails
     })
-    if(data) {
+
         const courseDetails = data
         const imageUrl=courseDetails.classified_product.image_url===null?notFoundImage : courseDetails.classified_product.image_url
         const instructors = courseDetails.classified_product.instructors
         const renderedInstructor = courseDetails.classified_product.instructors.map((instructor) => {
             const profilePic=instructor.profile_picture_url===null?defaultProfilePicture:instructor.profile_picture_url
             return (
-                <Grid sx={{pb: 2, mr: 7}}>
+                <Grid sx={{pb: 2, mr: 7}} key={instructor.instructor_id}>
                     <Stack direction='row' spacing={1} alignItems="center">
                         <img src={profilePic} alt='instructor1'
                              style={{width: 32, height: 32, borderRadius: 40}}/>
@@ -37,10 +38,6 @@ function CourseDetailsHeader(){
             <Stack direction='row' sx={{background: '#28A19C', color: 'white',mt:13}}>
                 <Stack direction='row' justifyContent='space-between' sx={{ width: '100%'}}>
                 <Stack spacing={3} sx={{pl: 10, pt: 5,flex: '1'}}>
-                    <Typography sx={{
-                        fontWeight: 700,
-                        fontSize: 17
-                    }}>{courseDetails.classified_product.subject} > {courseDetails.classified_product.title}</Typography>
                     <Typography
                         sx={{fontWeight: 700, fontSize: 32}}>{courseDetails.classified_product.title}</Typography>
                     <Typography sx={{
@@ -71,6 +68,6 @@ function CourseDetailsHeader(){
                         </Box>
                 </Stack>
             </Stack>)
-    }
+
 }
 export default  CourseDetailsHeader

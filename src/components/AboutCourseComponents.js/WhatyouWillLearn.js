@@ -34,7 +34,7 @@ function WhatyouWillLearn({header,data}){
                     </Grid>
             </Box>
             <Box sx={{bottom:40}}>
-                {isOverflow&&<Typography onClick={handleExpansion} sx={{ml:5,fontWeight:600,fontSize:18,color:'#28A19C'}}>{isExpanded?"Show less":"Show more"}</Typography>}
+                {isOverflow&&<Typography onClick={handleExpansion} sx={{ml:5,fontWeight:600,fontSize:18,color:'#28A19C',cursor:'pointer'}}>{isExpanded?"Show less":"Show more"}</Typography>}
             </Box>
 
         </Box>

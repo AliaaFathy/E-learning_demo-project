@@ -25,7 +25,7 @@ function AboutCourse(){
                 At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, Lorem ipsum dolor sit amet, consetetur sadipscing
             </Typography>
                 </Stack>
-            {isOverflow&&<Typography onClick={handleExpansion}  sx={{fontWeight:600,fontSize:18,color:'#28A19C',ml:3}}>{isExpanded?'Show Less':' Show more'}</Typography>}
+            {isOverflow&&<Typography onClick={handleExpansion}  sx={{fontWeight:600,fontSize:18,color:'#28A19C',ml:3,cursor:'pointer'}}>{isExpanded?'Show Less':' Show more'}</Typography>}
              <RightSideCourseSummary></RightSideCourseSummary>
         </Stack>
 

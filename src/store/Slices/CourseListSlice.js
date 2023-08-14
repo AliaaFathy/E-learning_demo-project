@@ -1,15 +1,18 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 
-const courseListSlice=createSlice({
+const coursesListSlice=createSlice({
     name:'courseList',
-    initialState:{courseList:[]},
+    initialState:{coursesList:[],flattenCoursesList:[]},
     reducers:{
-        setCourseList(state,action){
-            state.courseList=action.payload
+        setCoursesList(state,action){
+            state.coursesList=action.payload
+        },
+        setFlattenCoursesList(state,action){
+            state.flattenCoursesList=action.payload
         }
 
     }
 })
-export const{setCourseList}=courseListSlice.actions
-export const courseListReducer=courseListSlice.reducer
+export const{setCoursesList,setFlattenCoursesList}=coursesListSlice.actions
+export const coursesListReducer=coursesListSlice.reducer

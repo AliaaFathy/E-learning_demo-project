@@ -17,9 +17,9 @@ function Reviews({rating,usersReview}){
     const basedStyle={width:620}
     const{isExpanded,handleExpansion}=useExpansion();
     const style=isExpanded?basedStyle:{...basedStyle,maxHeight: 620,overflow:'hidden'}
-    const renderedReviews=rating.map((rate)=>{
+    const renderedReviews=rating.map((rate,index)=>{
         return(
-            <Box sx={{display:'flex'}}>
+            <Box sx={{display:'flex'}} key={index}>
                 <Typography sx={{mr:1,fontWeight:500,fontSize:16}}>{rate.rate} Stars</Typography>
                 <PercentRangeBar color='#FFBA00' percentValue={rate.percent} width={260} height={9}></PercentRangeBar>
 

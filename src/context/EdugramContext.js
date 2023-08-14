@@ -3,16 +3,14 @@ const EdugramContext=createContext()
 
 
 function EdugramProvider({children}){
-    const [open, setOpen] = useState(false);
-    const[clickedIndex,setClickedIndex]=useState(null)
+    const [userToken, setUserToken] = useState(localStorage.getItem('token'));
 
-    const handleOpen = () => {setOpen(true)};
-    const handleClose = () => {setOpen(false)};
-    const handleSlectedSubject=(index)=>{setClickedIndex(index)}
+    const handleTokenChange = (newToken) => {
+        setUserToken(newToken);
+    }
     const valueToShare={
-       handleOpen,
-       handleClose,
-       open,clickedIndex,handleSlectedSubject
+        userToken,
+        handleTokenChange,
 
     }
     return<EdugramContext.Provider value={valueToShare}>

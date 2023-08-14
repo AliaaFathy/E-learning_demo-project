@@ -9,7 +9,6 @@ function Quizzes(){
     const data=useSelector((state)=>{
         return state.aboutCourse.courseDatails
     })
-    if(data) {
         const quizzes = data.classified_product.quizzes
       /*  const Assignmentdata = [{title: 'AssignmentAssignmentAssignmentAssignmentAssignment 1'},
             {title: 'AssignmentAssignmentAssignmentAssignmentAssignment 2'},{title: 'AssignmentAssignmentAssignmentAssignmentAssignment 2'},{title: 'AssignmentAssignmentAssignmentAssignmentAssignment 2'},{title: 'AssignmentAssignmentAssignmentAssignmentAssignment 2'},
@@ -22,6 +21,6 @@ function Quizzes(){
             </Box>
 
         )
-    }
+
 }
 export default Quizzes;

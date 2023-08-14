@@ -13,7 +13,7 @@ function RecursiveList({data,header,type,imageSrc}){
     const style=isExpanded?basicStyle:{...basicStyle,maxHeight:480,overflow:'hidden',textOverflow:'ellipsis'}
     const renderedData=data.map((object,index)=>{
         return(
-            <Stack spacing={2}>
+            <Stack spacing={2} key={index}>
         <Typography
             sx={{display:'flex',fontWeight:700,fontSize:20}}>
             <img

@@ -10,13 +10,12 @@ function Instructors(){
     const data=useSelector((state)=>{
         return state.aboutCourse.courseDatails
     })
-    if(data) {
         const imageStyle = {width: 16, height: 15, marginRight: 10, marginTop: 3, marginBottom: 5}
         const instructors = data.classified_product.instructors //data from Api
         const renderedInstructorsDetails = instructors.map((instructor) => {
             const imageUrl=instructor.profile_picture_url===null?defaultProfilePicture:instructor.profile_picture_url
             return (
-                <Grid item xs={0} id='2' sx={{mr: 10,mb:2}}>
+                <Grid item xs={0} id='2' sx={{mr: 10,mb:2}} key={instructor.instructor_id}>
                     <Stack direction='row' spacing={2} >
                         <img src={imageUrl} alt='ProfilePicture'
                              style={{width: 100, height: 100, borderRadius: 50}}/>
@@ -41,20 +40,20 @@ function Instructors(){
                             <Box sx={{display: 'flex'}}>
                                 <img src={star} alt={'star'} style={imageStyle}/>
                                 <Typography sx={{fontWeight: 500, fontSize: 14, display: 'flex'}}>{4.5}
-                                    <Typography sx={{fontWeight: 400, fontSize: 14, ml: 1}}>Instructor
+                                    <Typography component='span' sx={{fontWeight: 400, fontSize: 14, ml: 1}}>Instructor
                                         Rating</Typography>
                                 </Typography>
                             </Box>
                             <Box sx={{display: 'flex'}}>
                                 <img src={group} alt={'group'} style={imageStyle}/>
                                 <Typography sx={{fontWeight: 500, fontSize: 14, display: 'flex'}}>452,272
-                                    <Typography sx={{fontWeight: 400, fontSize: 14, ml: 1}}> Learner</Typography>
+                                    <Typography component='span' sx={{fontWeight: 400, fontSize: 14, ml: 1}}> Learner</Typography>
                                 </Typography>
                             </Box>
                             <Box sx={{display: 'flex'}}>
                                 <img src={play} alt={'play'} style={imageStyle}/>
                                 <Typography sx={{fontWeight: 500, fontSize: 14, display: 'flex'}}>30
-                                    <Typography sx={{fontWeight: 400, fontSize: 14, ml: 1}}> Courses</Typography>
+                                    <Typography component='span' sx={{fontWeight: 400, fontSize: 14, ml: 1}}> Courses</Typography>
                                 </Typography>
 
                             </Box>
@@ -81,5 +80,5 @@ function Instructors(){
         )
     }
 
-}
+
 export default Instructors;

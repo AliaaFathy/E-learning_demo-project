@@ -15,29 +15,35 @@ import {useDispatch, useSelector} from "react-redux";
 import {whatyouWillLearnData,whatyouWillLearnHeader,rating,usersReviews} from "../staticData";
 import HeaderSkeleton from "../components/loadingSkeleton/HeaderSkeleton";
 import {menuBarContent} from "../staticData";
+import {useEffect} from "react";
+import LoadingSkeleton from "../components/loadingSkeleton/LoadingSkeleton";
 
 function About(){
-    const course_id=useSelector((state)=>{
-        return state.aboutCourse.course_id
+    const aboutCourse=useSelector((state)=>{
+        return {
+           course_id: state.aboutCourse.course_id,
+            courseDatails: state.aboutCourse.courseDatails
+        }
     })
     const dispatch=useDispatch()
-    const {data,error,isFetching}=useFetchCourseDetailsQuery(course_id)
+    const {data,error,isFetching}=useFetchCourseDetailsQuery(aboutCourse.course_id)
+    useEffect(() => {
+        if (data) {
+            dispatch(setCourseDetails(data.data));
+
+    }}, [data, dispatch])
     if(error) {
         return <div>Error...</div>
     }
-    else if(isFetching) {
+    else if(isFetching|| aboutCourse.courseDatails.length === 0) {
         return <HeaderSkeleton></HeaderSkeleton>
     }
-    else{
-        dispatch(setCourseDetails(data.data))
-        console.log(data)
-    }
-    console.log(whatyouWillLearnData,whatyouWillLearnHeader)
 
+    console.log(aboutCourse.courseDatails)
 
-    return(
+    return (
         <Box>
-            <CourseDetailsHeader data={data}></CourseDetailsHeader>
+            <CourseDetailsHeader></CourseDetailsHeader>
             <MenuBar menuBarContent={menuBarContent}></MenuBar>
             <AboutCourse></AboutCourse>
             <Requirement></Requirement>

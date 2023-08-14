@@ -11,7 +11,6 @@ function Assignment(){
         return state.aboutCourse.courseDatails
     })
 
-    if(data) {
         const assignments = data.classified_product.assignments
         return (
             <Box id='5'>
@@ -23,6 +22,6 @@ function Assignment(){
                 </RecursiveList>
             </Box>
         )
-    }
+
 }
 export default Assignment

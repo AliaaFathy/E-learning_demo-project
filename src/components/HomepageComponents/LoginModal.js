@@ -10,8 +10,7 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
 import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 
-function LoginModal(){
-const{handleClose,open}=useContext(EdugramContext)
+function LoginModal({handleClose}){
     const dispatch=useDispatch()
     const [login,result]= useLoginMutation()
     const [showPassword, setShowPassword] = useState(false);
@@ -25,30 +24,17 @@ const{handleClose,open}=useContext(EdugramContext)
             password:state.login.password
         }
     })
+    const {userToken,handleTokenChange}=useContext(EdugramContext)
     const handleClick=async () => {
         const response = await login(user);
         if(response.data.message==='You logged in successfully'){
-            console.log(response)
             localStorage.setItem('token',response.data.data.token)
-            console.log(localStorage.getItem('token'))
-
+            handleTokenChange(response.data.data.token)
             handleClose();
 
         }
 
     }
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        bgcolor: 'white',
-        borderRadius:4,
-        boxShadow: 54,
-        p: 4,
-        width:492,
-        height:511
-    };
     const loginModalContent=<>
         <ClearOutlinedIcon
             onClick={handleClose}
@@ -125,7 +111,9 @@ const{handleClose,open}=useContext(EdugramContext)
         </Typography>
     </>
     return(
-        <ModalTemplate style={style} children={loginModalContent} ></ModalTemplate>
+        <>
+        {loginModalContent}
+        </>
     )
 }
 export default LoginModal

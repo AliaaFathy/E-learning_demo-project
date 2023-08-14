@@ -1,9 +1,6 @@
-import {useContext} from "react";
-import EdugramContext from "../../context/EdugramContext";
 import {Box, Modal} from "@mui/material";
 
-function ModalTemplate({children,style}){
-    const{handleClose,open}=useContext(EdugramContext)
+function ModalTemplate({children,handleClose,open,style}){
     return(
         <Modal
             open={open}
