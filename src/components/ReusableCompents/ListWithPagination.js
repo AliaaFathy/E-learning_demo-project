@@ -1,29 +1,33 @@
 import CardList from "./CardList";
 import {Pagination, Stack} from "@mui/material";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useFetchFilteredCourseListQuery} from "../../store";
 import LoadingSkeleton from "../loadingSkeleton/LoadingSkeleton";
 
-function ListWithPagination({useFetchDataQuery,dataPath,totalPagesNumber,pageSize,addtionalRequestParams}){
+function ListWithPagination({totalPagesNumber,pageSize,data}){
     const[pageNumber,setPageNunmer]=useState(1)
+    const [currentPageData, setCurrentPageData] = useState([]);
+
     const handleChange=(e,value)=>{
         setPageNunmer(value);
-    }
-    const request = {...addtionalRequestParams, pageNumber: pageNumber, pageSize: pageSize}
+        window.scrollTo({ top: 250, behavior: 'smooth' });
 
-    const {data,error,isFetching}=useFetchDataQuery(request);
+    }
+    console.log(data)
+    useEffect(() => {
+        if(data) {
+            const startIndex = (pageNumber - 1) * pageSize;
+            const endIndex = startIndex + pageSize;
+            const slicedData = data.slice(startIndex, endIndex);
+            setCurrentPageData(slicedData)
+            console.log(slicedData)
+        }
+    }, [pageNumber, data]);
 
 
-    if(error){
-        return <div>Error...</div>
-    }
-    else if(isFetching){
-        return <LoadingSkeleton></LoadingSkeleton>
-    }
-    const actualData=data.data[dataPath]
     return(
         <Stack>
-            <CardList data={actualData}></CardList>
+            <CardList data={currentPageData}></CardList>
             <Pagination
                         count={totalPagesNumber}
                         page={pageNumber}

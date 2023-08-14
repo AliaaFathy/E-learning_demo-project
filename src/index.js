@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client"
-import './index.css'
 import App from "./App";
-import {EdugramProvider} from "./context/EdugramContext";
 import {BrowserRouter} from "react-router-dom";
 import {store} from "./store";
 import {Provider} from "react-redux";
@@ -17,7 +15,6 @@ const root=ReactDOM.createRoot(el)
 root.render(
 
     <BrowserRouter>
-     <EdugramProvider>
          <Provider store={store}>
              <ThemeProvider theme={basicTheme}>
       <App>
@@ -25,6 +22,5 @@ root.render(
              </ThemeProvider>
          </Provider>
 
-     </EdugramProvider>
     </BrowserRouter>
             )

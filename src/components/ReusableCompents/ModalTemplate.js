@@ -5,8 +5,7 @@ function ModalTemplate({children,handleClose,open,style}){
         <Modal
             open={open}
             onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description" sx={{backdropFilter:'blur(3px)'}}>
+            sx={{backdropFilter:'blur(3px)'}}>
             <Box sx={style}>
                 {children}
             </Box>

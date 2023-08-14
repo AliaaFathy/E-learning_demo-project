@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const loginSlice=createSlice({
     name:'login',
-    initialState:{email:'',password:''},
+    initialState:{email:'',password:'',userToken:localStorage.getItem('token')},
     reducers:{
         changeEmail(state,action){
             state.email=action.payload
@@ -11,7 +11,10 @@ const loginSlice=createSlice({
         changePassword(state,action){
             state.password=action.payload
         },
+        handleTokenChange(state,action){
+            state.userToken=action.payload
+        }
     }
 })
-export const{changeEmail,changePassword}=loginSlice.actions
+export const{changeEmail,changePassword,handleTokenChange}=loginSlice.actions
 export const userLoginReducer=loginSlice.reducer

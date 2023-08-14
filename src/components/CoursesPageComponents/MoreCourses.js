@@ -10,10 +10,10 @@ function MoreCourses(){
         }
     })
     const allcourses=useSelector((state)=>{
-        return state.coursesList.coursesList
+        return state.coursesList.flattenCoursesList
     })
     const selectedSubjectName=subject.subjectName
-    const totalItems=allcourses[selectedSubjectName].length
+    const totalItems=allcourses.length
     const totalPagesNumber=Math.ceil(totalItems/8)
 
 
@@ -21,6 +21,6 @@ function MoreCourses(){
         totalPagesNumber={totalPagesNumber}
         addtionalRequestParams={{subject_id: subject.subjectIndex}}
         pageSize={8} dataPath='courses'
-        useFetchDataQuery={useFetchFilteredCourseListQuery}/>)
+        useFetchDataQuery={useFetchFilteredCourseListQuery} data={allcourses}/>)
 }
 export default MoreCourses;

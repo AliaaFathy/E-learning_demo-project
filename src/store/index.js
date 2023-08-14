@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {userLoginReducer} from "./Slices/loginSlice";
-import {changeEmail,changePassword} from "./Slices/loginSlice";
+import {changeEmail,changePassword,handleTokenChange} from "./Slices/loginSlice";
 import {loginApi} from "./APIs/LoginApi";
 import {setupListeners} from "@reduxjs/toolkit/query";
 import {SubjectApi} from "./APIs/SubjectAPI";
@@ -44,7 +44,7 @@ setupListeners(store.dispatch);
 export {
     store,
     changeEmail,
-    changePassword,
+    changePassword,handleTokenChange,
     selectSubjectIndex,
     setCourseDetails,
     setCourseId,

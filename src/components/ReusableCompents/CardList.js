@@ -3,7 +3,6 @@ import {Box, Button, Grid, Stack} from "@mui/material";
 import CourseCard from "./CourseCard";
 import {useFetchFilteredCourseListQuery} from "../../store";
 import {useContext} from "react";
-import EdugramContext from "../../context/EdugramContext";
 
 function CardList({data}){
     let renderedCourseList

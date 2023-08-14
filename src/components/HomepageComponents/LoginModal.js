@@ -1,10 +1,8 @@
 import {useContext, useState} from "react";
-import EdugramContext from "../../context/EdugramContext";
 import {useDispatch, useSelector} from "react-redux";
-import {changeEmail, changePassword} from "../../store/Slices/loginSlice";
+import {changeEmail, changePassword,handleTokenChange} from "../../store/Slices/loginSlice";
 import {useLoginMutation} from "../../store";
-import ModalTemplate from '../ReusableCompents/ModalTemplate'
-import {Button, IconButton, InputAdornment, TextField, Typography} from "@mui/material";
+import {Button, IconButton, InputAdornment, TextField, Typography,Box,Container} from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import {Visibility, VisibilityOff} from "@mui/icons-material";
@@ -24,18 +22,17 @@ function LoginModal({handleClose}){
             password:state.login.password
         }
     })
-    const {userToken,handleTokenChange}=useContext(EdugramContext)
     const handleClick=async () => {
         const response = await login(user);
         if(response.data.message==='You logged in successfully'){
             localStorage.setItem('token',response.data.data.token)
-            handleTokenChange(response.data.data.token)
+            dispatch(handleTokenChange(localStorage.getItem('token')))
             handleClose();
 
         }
 
     }
-    const loginModalContent=<>
+    const loginModalContent=<Container sx={{alignItems:'center',justifyContent:'center'}}>
         <ClearOutlinedIcon
             onClick={handleClose}
             sx={{fontSize:'small',
@@ -44,7 +41,7 @@ function LoginModal({handleClose}){
                 background:'#e7e7e7'
                 ,borderRadius:5,
                 position:'absolute',
-                ml:52,
+                ml:55,
                 mt:-1}}>
         </ClearOutlinedIcon>
         <Typography
@@ -109,7 +106,7 @@ function LoginModal({handleClose}){
                 Sign Up
             </Typography>
         </Typography>
-    </>
+    </Container>
     return(
         <>
         {loginModalContent}

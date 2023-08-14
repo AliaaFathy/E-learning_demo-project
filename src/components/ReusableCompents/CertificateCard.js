@@ -16,7 +16,6 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CardTemplate from "./CardTemplate";
 
 function CertificateCard({certificate}){
-    const navigate=useNavigate()
     const media=<Box sx={{boxShadow: '0px 3px 6px 0px #00000029',display:'flex',alignItems:'center',height:251,justifyContent:'center' }}>
         <img src={certificate.imageUrl} sx={{width:94,height:94}} alt='certificate'/>
     </Box>
@@ -29,7 +28,6 @@ function CertificateCard({certificate}){
             {certificate.owner}
         </Typography>
     return(<CardTemplate
-        onClick={navigate('/about')}
         content={content}
         action={action}
         media={media}>

@@ -1,11 +1,13 @@
 import {Button, Stack, Typography} from "@mui/material";
 import {useContext} from "react";
-import EdugramContext from "../../context/EdugramContext";
 import ModalTemplate from "../ReusableCompents/ModalTemplate";
 import {useDispatch} from "react-redux";
+import {clearToken} from "../../action";
+import useLoggedin from "../../hooks/useLoggedin";
+import {handleTokenChange} from "../../store/Slices/loginSlice";
 
 function LogoutModal({handleClose}){
-    const {handleTokenChange}=useContext(EdugramContext)
+    //const {handleTokenChange}=useContext(EdugramContext)
     const dispatch=useDispatch()
 
     const style = {
@@ -16,13 +18,14 @@ function LogoutModal({handleClose}){
         bgcolor: 'white',
         borderRadius:4,
         boxShadow: 54,
-        p: 4,
+        p: 2,
         width:392,
-        height:200
+        height:100
     }
+
     const handleClick=()=>{
         localStorage.removeItem('token')
-        handleTokenChange(localStorage.getItem('token'))
+        dispatch(handleTokenChange(localStorage.getItem('token')))
         handleClose()
     }
     const children= <Stack alignItems='center' justifyContent={'center'} spacing={5}>

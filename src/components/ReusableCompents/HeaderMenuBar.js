@@ -7,19 +7,23 @@ import SearchBar from "./searchBar";
 import {Stack} from "@mui/material";
 import UserMode from "./UserMode";
 import GuestMode from "./GuestMode";
-import useIsOpen from "../../hooks/useIsOpen";
-import {useContext, useEffect, useState} from "react";
-import EdugramContext from "../../context/EdugramContext";
+
 import ScrolledMenu from "./ScrolledMenu";
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 
 export default function HeaderMenuBar() {
-    const{userToken}=useContext(EdugramContext)
+    const userToken=useSelector((state)=>{
+        return state.login.userToken
+    })
+    const navigate=useNavigate();
+
     const content=<Stack direction='row' spacing={30} sx={{mt:5,ml:8}}>
-        <img src={logo}  />
+        <img src={logo}  alt='logo'  onClick={()=>navigate('/')} style={{cursor:'pointer'}}/>
         <Stack direction='row' spacing={3} sx={{mt:5,ml:8}} alignItems='center'>
             <SearchBar placeholder='What do you want to learn?'></SearchBar>
-            {userToken===null?<GuestMode></GuestMode> :<UserMode></UserMode>}
+            {userToken===null?<GuestMode ></GuestMode> :<UserMode ></UserMode>}
         </Stack>
     </Stack>
     return (
