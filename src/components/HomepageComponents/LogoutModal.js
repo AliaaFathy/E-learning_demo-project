@@ -2,8 +2,6 @@ import {Button, Stack, Typography} from "@mui/material";
 import {useContext} from "react";
 import ModalTemplate from "../ReusableCompents/ModalTemplate";
 import {useDispatch} from "react-redux";
-import {clearToken} from "../../action";
-import useLoggedin from "../../hooks/useLoggedin";
 import {handleTokenChange} from "../../store/Slices/loginSlice";
 
 function LogoutModal({handleClose}){
